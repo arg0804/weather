@@ -1,0 +1,31 @@
+<div class="container">
+  <button class="toggle-button" 
+  [ngStyle]="{
+    'background-color': isBlackBackground ? 'transparent' : '#fff', 
+    'color': isBlackBackground ? '#343a40' : '#f8f9fa'
+  }" 
+    (click)="toggleBackgroundAndFullscreen()">
+    <span *ngIf="isBlackBackground">🌙</span>
+    <span *ngIf="!isBlackBackground">🌞</span>
+  </button>
+
+  <h1 [ngStyle]="{
+    'color': isBlackBackground ? '#f8f9fa' : '#343a40'
+  }" >Weather Dashboard</h1>
+  
+  <app-city-input (cityAdded)="addCity($event)"></app-city-input>
+
+
+  @if(loading){
+    <div>Loading...</div>
+  }
+
+  <div class="card" [@cityListAnimation]="cities.length">
+    @for(city of cities; track city.city){
+      <app-city-card
+        [city]="city"
+        (remove)="removeCity(city)">
+     </app-city-card>
+    }
+  </div>
+</div>

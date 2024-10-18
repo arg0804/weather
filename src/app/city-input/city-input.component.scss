@@ -1,0 +1,41 @@
+@import '../../variables';
+
+%input-styles {
+    border: 1px solid $light-gray;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-inline-end: 0.5rem;
+    transition: border-color $transition-duration-fast ease, box-shadow $transition-duration-fast ease;
+}
+
+%button-styles {
+    background-color: $dodger-blue;
+    color: $white;
+    font-weight: bold;
+    width: 65%;
+    padding: 8px 0;
+    border-radius: 0.5rem;
+    border: none;
+    transition: background-color $transition-duration-slow ease, transform $transition-duration-slow ease;
+    cursor: pointer;
+    box-shadow: 0 2px 5px $shadow;
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+    margin-block-end: 1rem;
+}
+
+.city-input {
+    @extend %input-styles;
+}
+
+.add-city {
+    @extend %button-styles;
+
+    &:hover {
+        background-color: $hover-primary;
+    }
+}

@@ -1,0 +1,13 @@
+<div class="input-container">
+  <input 
+      [(ngModel)]="city" 
+      placeholder="Enter city name" 
+      class="city-input"
+      (keyup.enter)="onAddCity()"
+  />
+  <button 
+      (click)="onAddCity()" 
+      class="add-city">
+      Search City
+  </button>
+</div>

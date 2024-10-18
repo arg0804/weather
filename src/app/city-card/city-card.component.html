@@ -1,0 +1,24 @@
+@if(city) {
+    <div class="city-card">
+        <h2 class="city-name">{{ city.city }}</h2>
+        <p class="city-temperature">{{ city.temperature }}°C</p>
+        <p class="city-condition">{{ city.condition }}</p>
+        
+        @if(city.forecast && city.forecast.length > 0){
+            <div class="forecast">
+                <h3>Next Few Days' Forecast</h3>
+                <div class="forecast-scroll">
+                    <ul>
+                        @for(day of city.forecast; track day){
+                            <li>
+                                <p>{{ day.date | date:'fullDate' }}: {{ day.temperature }}°C, {{ day.condition }}</p>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }  
+        
+        <button (click)="removeCity()" class="remove-button">Remove</button>
+    </div>
+}

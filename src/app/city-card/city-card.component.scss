@@ -1,0 +1,145 @@
+@import '../../variables';
+
+%city-card {
+  background-color: $white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px $shadow;
+  padding: 1rem;
+  width: 100%;
+  margin-block-start: 3rem;
+  font-size: 1.8rem;
+  text-align: center;
+  transition: transform $transition-duration-slow ease, box-shadow $transition-duration-fast ease;
+  transform: translateY(0);
+}
+
+%city-card-hover {
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px $oxford-blue;
+  }
+}
+
+%button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color $transition-duration-slow ease, transform $transition-duration-slow ease;
+}
+
+%button-hover {
+  &:hover {
+    background-color: $hover-primary;
+    transform: scale(1.05);
+  }
+}
+
+.city-card {
+  @extend %city-card;
+}
+
+.city-card:hover {
+  @extend %city-card-hover;
+}
+
+.remove-button {
+  @extend %button;
+  margin-block-start: 1rem;
+  width: 50%;
+  background-color: $danger;
+  color: $white;
+  transition: background-color 0.4s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.remove-button:hover {
+  background-color: $danger-hover;
+  box-shadow: 0 2px 5px $shadow;
+  transform: scale(1.05);
+}
+
+.forecast-scroll {
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  margin-block-start: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid $light-gray;
+  background-color: $white;
+  box-shadow: 0 2px 5px $shadow;
+  transition: box-shadow 0.3s ease;
+  
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $river-bed;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $light-gray;
+    border-radius: 10px;
+  }
+}
+
+.forecast-scroll ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.forecast-scroll li {
+  margin-block-end: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid $light-gray;
+}
+
+.forecast-scroll li:last-child {
+  border-bottom: none;
+}
+
+@media only screen and (max-width: 576px) {
+  .title {
+    font-size: $myFontSize-medium;
+  }
+
+  .city-card {
+    width: 100%;
+  }
+
+  .remove-button {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+  .city-card {
+    width: 100%;
+  }
+
+  .remove-button {
+    width: 45%;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1290px) {
+  .city-card {
+    width: 100%;
+  }
+
+  .remove-button {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 1291px) {
+  .city-card {
+    width: 100%;
+  }
+
+  .remove-button {
+    width: 40%;
+  }
+}

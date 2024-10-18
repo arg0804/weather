@@ -1,0 +1,57 @@
+@import '../variables';
+
+%container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+%card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    width: 50%;
+    margin-inline: auto;
+    margin-block-end: 20px;
+    transition: transform $transition-duration-slow;
+}
+
+.container {
+    @extend %container;
+}
+
+.card {
+    @extend %card;
+}
+
+@media only screen and (min-width: 400px) and (max-width: 890px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.toggle-button {
+    border: none;
+    padding: 5px 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-inline: auto;
+    margin-block-start: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.toggle-button:active {
+    background-color: #004085;
+}
+
+.toggle-button:focus {
+    outline: none;
+}
